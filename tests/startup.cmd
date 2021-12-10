@@ -1,2 +1,2 @@
 @echo off
-pipenv run ..\src\todo\main.py %1
+pipenv run ..\src\todo\main.py %*
