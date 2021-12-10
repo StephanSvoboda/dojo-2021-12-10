@@ -1,15 +1,4 @@
-import click
-
-
-@click.command("hello")
-def hello():
-    print("Hello World!")
-
-
-@click.command("hugo")
-def hugo():
-    print("Hello Hugo!")
-
+import sys
 
 if __name__ == "__main__":
-    hello()
+    print(sys.argv[1])
