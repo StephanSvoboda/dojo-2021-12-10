@@ -31,3 +31,20 @@ def test_add_many_todos():
     assert todo2 in todo_list
     assert 2 == len(todo_list)
 
+
+def test_write_todos():
+    """
+    This is an integration test
+    :return:
+    """
+    todo_app = TodoApp()
+    todo = "persist 1"
+    todo_app.add(todo)
+    todo_app2 = TodoApp()
+    todo_app2.load()
+    todo_app3 = TodoApp()
+    todo_app3.load()
+    todo_app3.add("persist 2")
+    todo_app2.load()
+    assert len(todo_app2.get_todos()) == 2
+
