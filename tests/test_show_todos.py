@@ -1,10 +1,8 @@
-import sys
-from io import StringIO
+import subprocess
 
 
 def test_test():
-    sys.stdout = StringIO()
     expected = "Hello World"
-    print("Hello World", end="")
-    actual = sys.stdout.getvalue()
-    assert expected == actual, f"Should {expected=} have been {actual=}"
+    proc = subprocess.run(["startup.cmd", expected], stdout=subprocess.PIPE, check=True, universal_newlines=True)
+    actual = proc.stdout
+    assert actual == f'"{expected}"\n', f"Should {expected=} have been {actual=}"
